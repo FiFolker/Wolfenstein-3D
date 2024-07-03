@@ -1,0 +1,302 @@
+[gd_scene load_steps=28 format=3 uid="uid://dqfv664ya6qvf"]
+
+[ext_resource type="Texture2D" uid="uid://c121w7sdlug2a" path="res://Assets/textures/Items/wolfweapons.png" id="1_pbvad"]
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_y1usg"]
+[ext_resource type="Texture2D" uid="uid://bttcwloecl1ih" path="res://Assets/textures/Characters/bjface.png" id="3_lx46n"]
+[ext_resource type="FontFile" uid="uid://ch5k302kv65j1" path="res://Assets/Fonts/Gamerock.otf" id="3_reb8q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uggby"]
+atlas = ExtResource("1_pbvad")
+region = Rect2(64, 96, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7usc"]
+atlas = ExtResource("1_pbvad")
+region = Rect2(128, 96, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jdye"]
+atlas = ExtResource("1_pbvad")
+region = Rect2(192, 96, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jrb8"]
+atlas = ExtResource("1_pbvad")
+region = Rect2(256, 96, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1efrg"]
+atlas = ExtResource("1_pbvad")
+region = Rect2(0, 96, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brrum"]
+atlas = ExtResource("1_pbvad")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnctq"]
+atlas = ExtResource("1_pbvad")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwkkb"]
+atlas = ExtResource("1_pbvad")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wtpq"]
+atlas = ExtResource("1_pbvad")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbjn6"]
+atlas = ExtResource("1_pbvad")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dakv2"]
+atlas = ExtResource("1_pbvad")
+region = Rect2(64, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjphg"]
+atlas = ExtResource("1_pbvad")
+region = Rect2(128, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqdox"]
+atlas = ExtResource("1_pbvad")
+region = Rect2(192, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuarn"]
+atlas = ExtResource("1_pbvad")
+region = Rect2(256, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2y0k"]
+atlas = ExtResource("1_pbvad")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52wnk"]
+atlas = ExtResource("1_pbvad")
+region = Rect2(64, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwn7n"]
+atlas = ExtResource("1_pbvad")
+region = Rect2(128, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljg60"]
+atlas = ExtResource("1_pbvad")
+region = Rect2(192, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edm4c"]
+atlas = ExtResource("1_pbvad")
+region = Rect2(256, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36pep"]
+atlas = ExtResource("1_pbvad")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_10dy5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uggby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7usc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jdye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jrb8")
+}],
+"loop": false,
+"name": &"chaingun_attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1efrg")
+}],
+"loop": false,
+"name": &"chaingun_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brrum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnctq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwkkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wtpq")
+}],
+"loop": false,
+"name": &"knife_attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbjn6")
+}],
+"loop": false,
+"name": &"knife_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dakv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjphg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqdox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuarn")
+}],
+"loop": false,
+"name": &"machine_gun_attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2y0k")
+}],
+"loop": false,
+"name": &"machine_gun_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52wnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwn7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljg60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edm4c")
+}],
+"loop": false,
+"name": &"pistol_attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36pep")
+}],
+"loop": true,
+"name": &"pistol_idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcqeg"]
+atlas = ExtResource("3_lx46n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ugjh0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcqeg")
+}],
+"loop": false,
+"name": &"100%",
+"speed": 5.0
+}]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_y1usg")
+
+[node name="Weapon" type="AnimatedSprite2D" parent="."]
+position = Vector2(544, 432)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_10dy5")
+animation = &"chaingun_idle"
+autoplay = "knife_idle"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -121.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Interface" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -121.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.0745098, 0.0745098, 0.654902, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 33.0
+offset_top = -60.5
+offset_right = 1121.0
+offset_bottom = 60.5
+grow_vertical = 2
+
+[node name="Floor" type="PanelContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+tooltip_text = "Floor"
+
+[node name="Score" type="PanelContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+tooltip_text = "Score"
+
+[node name="Lives" type="VBoxContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/Lives"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_reb8q")
+text = "LIVES"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/Lives"]
+layout_mode = 2
+text = "9"
+horizontal_alignment = 1
+
+[node name="Face" type="PanelContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+tooltip_text = "B. J. Blazkowicz"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/HBoxContainer/Face"]
+position = Vector2(63, 60.5)
+scale = Vector2(3.875, 3.78125)
+sprite_frames = SubResource("SpriteFrames_ugjh0")
+animation = &"100%"
+
+[node name="Health" type="PanelContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+tooltip_text = "Health"
+
+[node name="Ammo" type="PanelContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+tooltip_text = "Ammo"
+
+[node name="Keys" type="PanelContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+tooltip_text = "Keys"
+
+[node name="Weapon" type="PanelContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+tooltip_text = "Weapon"

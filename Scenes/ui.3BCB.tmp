@@ -1,0 +1,190 @@
+[gd_scene load_steps=13 format=3 uid="uid://dqfv664ya6qvf"]
+
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_y1usg"]
+[ext_resource type="Resource" uid="uid://btwey3n6hfhvg" path="res://Resources/Weapons/knife.tres" id="2_fl38r"]
+[ext_resource type="Resource" uid="uid://dkp0doiqegf5b" path="res://Resources/Weapons/pistol.tres" id="3_fqrtq"]
+[ext_resource type="FontFile" uid="uid://bahll6yycpk4j" path="res://Assets/Fonts/Wolfenstein (fake).ttf" id="3_ihkai"]
+[ext_resource type="Texture2D" uid="uid://bttcwloecl1ih" path="res://Assets/textures/Characters/bjface.png" id="3_lx46n"]
+[ext_resource type="Resource" uid="uid://o424hg7vps4i" path="res://Resources/Weapons/machine_gun.tres" id="4_b8epw"]
+[ext_resource type="Resource" uid="uid://bpbsdhteyes6l" path="res://Resources/Weapons/chaingun.tres" id="5_8j6e0"]
+[ext_resource type="Texture2D" uid="uid://brb7wqqtl01l2" path="res://Assets/textures/Items/hudgun.png" id="5_b1ccq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lp1to"]
+line_spacing = 0.0
+font = ExtResource("3_ihkai")
+font_size = 27
+font_color = Color(0.548963, 0.548963, 0.548963, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i1x3t"]
+font = ExtResource("3_ihkai")
+font_size = 52
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcqeg"]
+atlas = ExtResource("3_lx46n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ugjh0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcqeg")
+}],
+"loop": false,
+"name": &"100%",
+"speed": 5.0
+}]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_y1usg")
+current_weapon = ExtResource("2_fl38r")
+weapons = Array[Resource("res://Scripts/weapon.gd")]([ExtResource("2_fl38r"), ExtResource("3_fqrtq"), ExtResource("4_b8epw"), ExtResource("5_8j6e0")])
+
+[node name="Weapon" type="AnimatedSprite2D" parent="."]
+position = Vector2(544, 432)
+scale = Vector2(6, 6)
+animation = &"pistol_idle"
+autoplay = "knife_idle"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -121.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Interface" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -121.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0.643137, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -544.0
+offset_top = -60.5
+offset_right = 544.0
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Floor" type="VBoxContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+
+[node name="FloorLabel" type="Label" parent="Control/HBoxContainer/Floor"]
+layout_mode = 2
+text = "FLOOR"
+label_settings = SubResource("LabelSettings_lp1to")
+horizontal_alignment = 1
+
+[node name="FloorValue" type="Label" parent="Control/HBoxContainer/Floor"]
+layout_mode = 2
+text = "1"
+label_settings = SubResource("LabelSettings_i1x3t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="VBoxContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="Control/HBoxContainer/Score"]
+layout_mode = 2
+text = "SCORE"
+label_settings = SubResource("LabelSettings_lp1to")
+horizontal_alignment = 1
+
+[node name="ScoreValue" type="Label" parent="Control/HBoxContainer/Score"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_i1x3t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lives" type="VBoxContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+
+[node name="LivesLabel" type="Label" parent="Control/HBoxContainer/Lives"]
+layout_mode = 2
+text = "LIVES"
+label_settings = SubResource("LabelSettings_lp1to")
+horizontal_alignment = 1
+
+[node name="LivesValue" type="Label" parent="Control/HBoxContainer/Lives"]
+layout_mode = 2
+text = "9"
+label_settings = SubResource("LabelSettings_i1x3t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/HBoxContainer/Control"]
+position = Vector2(64, 64)
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_ugjh0")
+animation = &"100%"
+
+[node name="Health" type="VBoxContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+
+[node name="HealthLabel" type="Label" parent="Control/HBoxContainer/Health"]
+layout_mode = 2
+text = "HEALTH"
+label_settings = SubResource("LabelSettings_lp1to")
+horizontal_alignment = 1
+
+[node name="HealthValue" type="Label" parent="Control/HBoxContainer/Health"]
+layout_mode = 2
+text = "100%"
+label_settings = SubResource("LabelSettings_i1x3t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ammo" type="VBoxContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+
+[node name="AmmoLabel" type="Label" parent="Control/HBoxContainer/Ammo"]
+layout_mode = 2
+text = "AMMO"
+label_settings = SubResource("LabelSettings_lp1to")
+horizontal_alignment = 1
+
+[node name="AmmoValue" type="Label" parent="Control/HBoxContainer/Ammo"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_i1x3t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Items" type="VBoxContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="WeaponSprite" type="Sprite2D" parent="Control/HBoxContainer/CenterContainer"]
+position = Vector2(101, 56)
+scale = Vector2(4.20834, 4.20834)
+texture = ExtResource("5_b1ccq")

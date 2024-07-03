@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3tredm1ikgc"]
+
+[ext_resource type="Texture2D" uid="uid://c81vs0ii48hhj" path="res://Assets/textures/Characters/guard.png" id="1_4km2h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qumav"]
+atlas = ExtResource("1_4km2h")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_86e65"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qumav")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_86e65")
+animation = &"idle"

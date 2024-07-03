@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://hjd6me53k836"]
+
+[ext_resource type="Texture2D" uid="uid://qxs3xyg5wxkj" path="res://Assets/textures/Environment/grey stone wall.png" id="1_keou0"]
+
+[resource]
+albedo_texture = ExtResource("1_keou0")
+uv1_scale = Vector3(15, 3, 1)
