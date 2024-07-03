@@ -42,7 +42,7 @@ weapons = Array[Resource("res://Scripts/weapon.gd")]([ExtResource("2_fl38r"), Ex
 [node name="Weapon" type="AnimatedSprite2D" parent="."]
 position = Vector2(544, 432)
 scale = Vector2(6, 6)
-animation = &"pistol_idle"
+animation = &""
 autoplay = "knife_idle"
 
 [node name="Control" type="Control" parent="."]
