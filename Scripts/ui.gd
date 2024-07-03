@@ -1,51 +1,57 @@
 extends CanvasLayer
 
-@export var current_weapon:Weapon
-@export var weapons:Array[Weapon]
+@export var weapon_scene: PackedScene;
+var current_weapon:Weapon
+@export var weapons:Array[PackedScene]
+@onready var weapon_place = $WeaponPlace
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Weapon.animation_finished.connect(_on_weapon_animation_finished)
-	set_weapon()
+	set_weapon(0)
 
 func _process(delta):
-	var ammo = 0
-	if current_weapon is GunWeapon:
-		var weapon :GunWeapon = current_weapon
-		current_weapon.ammo += 10
-		ammo = current_weapon.ammo
-
-	$Control/HBoxContainer/Ammo/AmmoValue.text = str(ammo)
+	$Control/HBoxContainer/Ammo/AmmoValue.text = str(current_weapon.get_ammo())
 	
 func _input(event):
 	change_weapon(event)
-	attack(event)
 
-func attack(event:InputEvent) -> void:
-	if event.is_action_pressed("attack") && current_weapon.can_attack():
-		$Weapon.play("attack")
-
-func change_weapon(event:InputEvent) -> void:
+func change_weapon(event: InputEvent) -> void:
 	if event.is_action_pressed("knife"):
-		current_weapon = weapons[0]
-		set_weapon()
-	if event.is_action_pressed("pistol"):
-		current_weapon = weapons[1]
-		set_weapon()
-	if event.is_action_pressed("machine_gun"):
-		current_weapon = weapons[2]
-		set_weapon()
-	if event.is_action_pressed("chaingun"):
-		current_weapon = weapons[3]
-		set_weapon()
-	
+		set_weapon(0)
+	elif event.is_action_pressed("pistol"):
+		set_weapon(1)
+	elif event.is_action_pressed("machine_gun"):
+		set_weapon(2)
+	elif event.is_action_pressed("chaingun"):
+		set_weapon(3)
 
-func set_weapon():
-	$Weapon.sprite_frames = current_weapon.spriteFramesWeapon
-	$Weapon.play("idle")
-	$Control/HBoxContainer/CenterContainer/WeaponSprite.texture = current_weapon.weaponSprite
+#func change_weapon(event:InputEvent) -> void:
+	#if event.is_action_pressed("knife"):
+		#current_weapon = weapons[0]
+		#set_weapon()
+	#if event.is_action_pressed("pistol"):
+		#current_weapon = weapons[1]
+		#set_weapon()
+	#if event.is_action_pressed("machine_gun"):
+		#current_weapon = weapons[2]
+		#set_weapon()
+	#if event.is_action_pressed("chaingun"):
+		#current_weapon = weapons[3]
+		#set_weapon()
 	
-	
-func _on_weapon_animation_finished():
-	$Weapon.play("idle")
-
+func set_weapon(index: int) -> void:
+	if index >= 0 and index < weapons.size():
+		if current_weapon:
+			current_weapon.queue_free()
+		var new_weapon_instance = weapons[index].instantiate()
+		current_weapon = new_weapon_instance as Weapon
+		weapon_place.add_child(new_weapon_instance)
+		$Control/HBoxContainer/CenterContainer/WeaponSprite.texture = current_weapon.weaponSprite
+	else:
+		print("Invalid weapon index: ", index)
+#
+#func set_weapon():
+	#current_weapon = weapon_scene.instantiate()
+	#weapon_place.add_child(current_weapon)
+	#$Control/HBoxContainer/CenterContainer/WeaponSprite.texture = current_weapon.weaponSprite
+#

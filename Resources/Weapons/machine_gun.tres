@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="GunWeapon" load_steps=10 format=3 uid="uid://o424hg7vps4i"]
 
-[ext_resource type="Script" path="res://Scripts/gun_weapon.gd" id="1_u7rgg"]
+[ext_resource type="Script" path="res://Scripts/gun_weapo_data.gd" id="1_u7rgg"]
 [ext_resource type="Texture2D" uid="uid://bl46m4sxx3rvq" path="res://Assets/textures/Items/hudmachinegun.png" id="2_7hbtm"]
 [ext_resource type="Texture2D" uid="uid://c121w7sdlug2a" path="res://Assets/textures/Items/wolfweapons.png" id="2_jcskx"]
 
@@ -24,7 +24,7 @@ region = Rect2(256, 64, 64, 32)
 atlas = ExtResource("2_jcskx")
 region = Rect2(0, 64, 64, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_p0qey"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_trqek"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -54,6 +54,6 @@ animations = [{
 
 [resource]
 script = ExtResource("1_u7rgg")
-spriteFramesWeapon = SubResource("SpriteFrames_p0qey")
+spriteFramesWeapon = SubResource("SpriteFrames_trqek")
 weaponName = "machine gun"
 weaponSprite = ExtResource("2_7hbtm")

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="GunWeapon" load_steps=10 format=3 uid="uid://bpbsdhteyes6l"]
 
-[ext_resource type="Script" path="res://Scripts/gun_weapon.gd" id="1_gau8p"]
+[ext_resource type="Script" path="res://Scripts/gun_weapo_data.gd" id="1_gau8p"]
 [ext_resource type="Texture2D" uid="uid://c121w7sdlug2a" path="res://Assets/textures/Items/wolfweapons.png" id="2_8icny"]
 [ext_resource type="Texture2D" uid="uid://dmvpll6gcj5wx" path="res://Assets/textures/Items/hudmini.png" id="2_mohrn"]
 

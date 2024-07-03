@@ -1,30 +1,29 @@
-[gd_resource type="Resource" script_class="GunWeapon" load_steps=10 format=3 uid="uid://dkp0doiqegf5b"]
+[gd_scene load_steps=9 format=3 uid="uid://b6dbgp4wgq4au"]
 
-[ext_resource type="Script" path="res://Scripts/gun_weapo_data.gd" id="1_47g7l"]
-[ext_resource type="Texture2D" uid="uid://c121w7sdlug2a" path="res://Assets/textures/Items/wolfweapons.png" id="2_goagj"]
-[ext_resource type="Texture2D" uid="uid://brb7wqqtl01l2" path="res://Assets/textures/Items/hudgun.png" id="3_ba3st"]
+[ext_resource type="Texture2D" uid="uid://c121w7sdlug2a" path="res://Assets/textures/Items/wolfweapons.png" id="1_gvdgd"]
+[ext_resource type="Script" path="res://Scripts/weapon_gun.gd" id="2_he7iv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cefbd"]
-atlas = ExtResource("2_goagj")
+atlas = ExtResource("1_gvdgd")
 region = Rect2(64, 32, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vljwd"]
-atlas = ExtResource("2_goagj")
+atlas = ExtResource("1_gvdgd")
 region = Rect2(128, 32, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w4r6m"]
-atlas = ExtResource("2_goagj")
+atlas = ExtResource("1_gvdgd")
 region = Rect2(192, 32, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bxqrv"]
-atlas = ExtResource("2_goagj")
+atlas = ExtResource("1_gvdgd")
 region = Rect2(256, 32, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6gjiu"]
-atlas = ExtResource("2_goagj")
+atlas = ExtResource("1_gvdgd")
 region = Rect2(0, 32, 64, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_xglk3"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivydu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -52,8 +51,7 @@ animations = [{
 "speed": 15.0
 }]
 
-[resource]
-script = ExtResource("1_47g7l")
-spriteFramesWeapon = SubResource("SpriteFrames_xglk3")
-weaponName = "pistol"
-weaponSprite = ExtResource("3_ba3st")
+[node name="pistol" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ivydu")
+animation = &"attack"
+script = ExtResource("2_he7iv")
