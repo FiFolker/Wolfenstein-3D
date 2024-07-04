@@ -17,7 +17,7 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("attack"):
-		self.play("attack")
+		attack()
 	
 func _on_weapon_animation_finished():
 	self.play("idle")

@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-@export var weapon_scene: PackedScene;
 var current_weapon:Weapon
 @export var weapons:Array[PackedScene]
 @onready var weapon_place = $WeaponPlace
@@ -25,20 +24,6 @@ func change_weapon(event: InputEvent) -> void:
 	elif event.is_action_pressed("chaingun"):
 		set_weapon(3)
 
-#func change_weapon(event:InputEvent) -> void:
-	#if event.is_action_pressed("knife"):
-		#current_weapon = weapons[0]
-		#set_weapon()
-	#if event.is_action_pressed("pistol"):
-		#current_weapon = weapons[1]
-		#set_weapon()
-	#if event.is_action_pressed("machine_gun"):
-		#current_weapon = weapons[2]
-		#set_weapon()
-	#if event.is_action_pressed("chaingun"):
-		#current_weapon = weapons[3]
-		#set_weapon()
-	
 func set_weapon(index: int) -> void:
 	if index >= 0 and index < weapons.size():
 		if current_weapon:
@@ -49,9 +34,3 @@ func set_weapon(index: int) -> void:
 		$Control/HBoxContainer/CenterContainer/WeaponSprite.texture = current_weapon.weaponSprite
 	else:
 		print("Invalid weapon index: ", index)
-#
-#func set_weapon():
-	#current_weapon = weapon_scene.instantiate()
-	#weapon_place.add_child(current_weapon)
-	#$Control/HBoxContainer/CenterContainer/WeaponSprite.texture = current_weapon.weaponSprite
-#

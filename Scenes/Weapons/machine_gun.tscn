@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://bo244r3asp61q"]
+
+[ext_resource type="Texture2D" uid="uid://c121w7sdlug2a" path="res://Assets/textures/Items/wolfweapons.png" id="1_d25tu"]
+[ext_resource type="Script" path="res://Scripts/weapon_gun.gd" id="2_abtit"]
+[ext_resource type="Texture2D" uid="uid://bl46m4sxx3rvq" path="res://Assets/textures/Items/hudmachinegun.png" id="3_hpltp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnlrp"]
+atlas = ExtResource("1_d25tu")
+region = Rect2(64, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtnau"]
+atlas = ExtResource("1_d25tu")
+region = Rect2(128, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyeb2"]
+atlas = ExtResource("1_d25tu")
+region = Rect2(192, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y57l8"]
+atlas = ExtResource("1_d25tu")
+region = Rect2(256, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwlmv"]
+atlas = ExtResource("1_d25tu")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivydu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnlrp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtnau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyeb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y57l8")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwlmv")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 15.0
+}]
+
+[node name="pistol" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ivydu")
+animation = &"idle"
+script = ExtResource("2_abtit")
+weaponSprite = ExtResource("3_hpltp")
