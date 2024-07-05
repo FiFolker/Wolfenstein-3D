@@ -1,30 +1,30 @@
-[gd_scene load_steps=10 format=3 uid="uid://bo244r3asp61q"]
+[gd_resource type="SpriteFrames" script_class="Weapon" load_steps=9 format=3 uid="uid://b6otlbbe4m0jd"]
 
-[ext_resource type="Texture2D" uid="uid://c121w7sdlug2a" path="res://Assets/textures/Items/wolfweapons.png" id="1_d25tu"]
-[ext_resource type="Script" path="res://Scripts/weapon_gun.gd" id="2_abtit"]
-[ext_resource type="Texture2D" uid="uid://bl46m4sxx3rvq" path="res://Assets/textures/Items/hudmachinegun.png" id="3_hpltp"]
+[ext_resource type="Texture2D" uid="uid://c121w7sdlug2a" path="res://Assets/textures/Items/wolfweapons.png" id="1_f0uhw"]
+[ext_resource type="Script" path="res://Scripts/weapon.gd" id="2_b0oye"]
+[ext_resource type="Texture2D" uid="uid://bl46m4sxx3rvq" path="res://Assets/textures/Items/hudmachinegun.png" id="3_q3quh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dnlrp"]
-atlas = ExtResource("1_d25tu")
+atlas = ExtResource("1_f0uhw")
 region = Rect2(64, 64, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xtnau"]
-atlas = ExtResource("1_d25tu")
+atlas = ExtResource("1_f0uhw")
 region = Rect2(128, 64, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tyeb2"]
-atlas = ExtResource("1_d25tu")
+atlas = ExtResource("1_f0uhw")
 region = Rect2(192, 64, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y57l8"]
-atlas = ExtResource("1_d25tu")
+atlas = ExtResource("1_f0uhw")
 region = Rect2(256, 64, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dwlmv"]
-atlas = ExtResource("1_d25tu")
+atlas = ExtResource("1_f0uhw")
 region = Rect2(0, 64, 64, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ivydu"]
+[resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -51,9 +51,6 @@ animations = [{
 "name": &"idle",
 "speed": 15.0
 }]
-
-[node name="pistol" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_ivydu")
-animation = &"idle"
-script = ExtResource("2_abtit")
-weaponSprite = ExtResource("3_hpltp")
+script = ExtResource("2_b0oye")
+has_ammo = true
+weapon_sprite = ExtResource("3_q3quh")

@@ -12,7 +12,7 @@ func _ready():
 
 func _process(delta):
 	#print(get_tree().get_nodes_in_group("Player")[0])
-	print(player)
+	#print(player)
 	if player != null:
 		target = player.position
 		update_target_location(target)

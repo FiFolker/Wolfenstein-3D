@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cvl2k7kkumou2"]
+[gd_scene load_steps=13 format=3 uid="uid://cvl2k7kkumou2"]
 
 [ext_resource type="Material" uid="uid://dpscv1dvmuivx" path="res://Resources/Materials/floor.tres" id="1_d5y5h"]
 [ext_resource type="PackedScene" uid="uid://c5n387ol0xt7o" path="res://Scenes/player.tscn" id="1_dsu66"]
-[ext_resource type="PackedScene" uid="uid://dqfv664ya6qvf" path="res://Scenes/ui.tscn" id="1_tkgt8"]
 [ext_resource type="Material" uid="uid://hjd6me53k836" path="res://Resources/Materials/walls.tres" id="2_4wjha"]
 [ext_resource type="PackedScene" uid="uid://cx5rdafvwbr7n" path="res://Scenes/enemy.tscn" id="5_qrrrk"]
 
@@ -102,8 +101,6 @@ environment = SubResource("Environment_184ok")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
-
-[node name="UI" parent="." instance=ExtResource("1_tkgt8")]
 
 [node name="Player" parent="." instance=ExtResource("1_dsu66")]
 
