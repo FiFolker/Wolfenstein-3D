@@ -49,3 +49,25 @@ func set_weapon(index: int) -> void:
 func _on_weapon_animation_finished():
 	is_shooting = false
 	$WeaponAnimation.play("idle")
+
+func damage(health:int):
+	$Control/HBoxContainer/Health/HealthValue.text = str(health) + "%" # change ui life label
+	$Control/HBoxContainer/Control/Face.play(get_good_face_animation(health))
+	
+func get_good_face_animation(health:int) -> String:
+	var choosed_name:int
+	var sprite_frames: SpriteFrames = $Control/HBoxContainer/Control/Face.sprite_frames
+	var names_sorted : Array[int]
+	
+	for names in sprite_frames.get_animation_names(): # create Array of int to sort them and find the good anim
+		names_sorted.append(int(names))
+		
+	names_sorted.sort()
+	
+	for index in range(names_sorted.size()-1): # take good animation name with the current health
+		if health >= names_sorted[index] and health < names_sorted[index+1]:
+			choosed_name = names_sorted[index]
+	
+	return str(choosed_name)
+	
+

@@ -1,9 +1,9 @@
 [gd_scene load_steps=31 format=3 uid="uid://dqfv664ya6qvf"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_y1usg"]
-[ext_resource type="SpriteFrames" uid="uid://cjlrh348xgjwn" path="res://Resources/SpriteFrames/knife.tres" id="2_q02jv"]
-[ext_resource type="SpriteFrames" uid="uid://hqstwm63f6gp" path="res://Resources/SpriteFrames/pistol.tres" id="3_7rvas"]
+[ext_resource type="SpriteFrames" uid="uid://cjlrh348xgjwn" path="res://Resources/SpriteFrames/Weapons/knife.tres" id="2_65anr"]
 [ext_resource type="FontFile" uid="uid://bahll6yycpk4j" path="res://Assets/Fonts/Wolfenstein (fake).ttf" id="3_ihkai"]
+[ext_resource type="SpriteFrames" uid="uid://hqstwm63f6gp" path="res://Resources/SpriteFrames/Weapons/pistol.tres" id="3_ikv47"]
 [ext_resource type="Texture2D" uid="uid://bttcwloecl1ih" path="res://Assets/textures/Characters/bjface.png" id="3_lx46n"]
 [ext_resource type="Texture2D" uid="uid://0jtydcinoh3x" path="res://Assets/textures/Items/hudknife.png" id="6_x61u0"]
 
@@ -204,7 +204,7 @@ animations = [{
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_y1usg")
-weapons = Array[Resource("res://Scripts/weapon.gd")]([ExtResource("2_q02jv"), ExtResource("3_7rvas"), null, null])
+weapons = Array[Resource("res://Scripts/weapon.gd")]([ExtResource("2_65anr"), ExtResource("3_ikv47"), null, null])
 
 [node name="WeaponAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(544, 432)

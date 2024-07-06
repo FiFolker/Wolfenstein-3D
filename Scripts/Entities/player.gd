@@ -42,6 +42,8 @@ func _input(event):
 	if event.is_action_pressed("attack"):
 		if ui_script.is_shooting:
 			shoot()
+	if event.is_action_pressed("ui_accept"):
+		$HealthModule.health -= 5
 
 func shoot():
 	if ray_cast.is_colliding():
@@ -50,4 +52,12 @@ func shoot():
 			print(collider)
 			var health_module = collider.find_child("HealthModule", true, false)
 			if health_module:
-				health_module.damage()
+				health_module.health -= 1
+
+
+func _on_health_module_death():
+	queue_free()
+
+
+func _on_health_module_damage_taken():
+	ui_script.damage($HealthModule.health)
