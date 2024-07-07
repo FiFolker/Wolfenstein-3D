@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name Player
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -56,7 +56,10 @@ func shoot():
 
 
 func _on_health_module_death():
+	print("tu t'es fait ETEINDRE !!")
 	queue_free()
+	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+	
 
 
 func _on_health_module_damage_taken():

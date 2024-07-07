@@ -13,3 +13,6 @@ signal death
 			damage_taken.emit()
 			
 
+func set_default_health(default_health:int):
+	max_health = default_health
+	self.health = default_health

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://bpq7wggjvq02q"]
+
+[ext_resource type="Script" path="res://Scripts/Data/enemy_data.gd" id="1_x7osp"]
+
+[resource]
+script = ExtResource("1_x7osp")
+follow_range = 30.0
+attack_range = 20.0
+max_view_distance = 800.0
+angle_between_rays = 5.0
+angle_cone_vision = 30.0
+health = 2.0
+move_speed = 5.0
