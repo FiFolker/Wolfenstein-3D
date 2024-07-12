@@ -6,14 +6,14 @@ var current_weapon:Weapon
 @export var weapons:Array[Weapon] = [null, null, null, null]
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	$WeaponAnimation.animation_finished.connect(_on_weapon_animation_finished)
 	set_weapon(0)
 
-func _process(delta):
+func _process(delta:float) -> void:
 	$Control/HBoxContainer/Ammo/AmmoValue.text = str(ammo)
 	
-func _input(event):
+func _input(event:InputEvent) -> void:
 	change_weapon(event)
 	if event.is_action_pressed("attack"):
 		is_shooting = true
@@ -46,11 +46,11 @@ func set_weapon(index: int) -> void:
 	else:
 		print("Invalid weapon index: ", index)
 
-func _on_weapon_animation_finished():
+func _on_weapon_animation_finished() -> void:
 	is_shooting = false
 	$WeaponAnimation.play("idle")
 
-func damage(health:int):
+func damage(health:int) -> void:
 	$Control/HBoxContainer/Health/HealthValue.text = str(health) + "%" # change ui life label
 	$Control/HBoxContainer/Control/Face.play(get_good_face_animation(health))
 	

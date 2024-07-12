@@ -1,27 +1,27 @@
 extends CharacterBody3D
 class_name Enemy
 
-@onready var sprite = $AnimatedSprite3D
-@onready var weapon = $Weapon
+@onready var sprite := $AnimatedSprite3D
+@onready var weapon := $Weapon
 @export var enemy_data : EnemyData
-@onready var radar = $Radar
+@onready var radar := $Radar
 
 @onready var player: CharacterBody3D = get_parent().get_node("Player")
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	weapon.target_position = Vector3(0,0,-enemy_data.attack_range)
 	$HealthModule.set_default_health(enemy_data.health)
 	radar.target_position = Vector3(0,0, -enemy_data.max_view_distance)
 	
-func _process(delta):
+func _process(delta:float) -> void:
 	
 	if velocity != Vector3.ZERO:
 		sprite.play("walk")
 
-func _physics_process(delta):
+func _physics_process(delta:float) -> void:
 	#radar_detector()
-	radar.cast_to = radar.to_local(-self.transform.basis.z * enemy_data.max_view_distance) #doesn't work idk why ...
+	#radar.cast_to = radar.to_local(-self.transform.basis.z * enemy_data.max_view_distance) #doesn't work idk why ...
 
 	# Mise à jour du raycast
 	radar.force_raycast_update()
@@ -33,7 +33,7 @@ func _physics_process(delta):
 		rotation.z = 0
 	move_and_slide()
 
-func radar_detector():
+func radar_detector()-> void:
 	var cast_count := int(enemy_data.angle_cone_vision / enemy_data.angle_between_rays) + 1
 	
 	for index in cast_count:
@@ -48,14 +48,14 @@ func radar_detector():
 			print("player in vision")
 			break;
 
-func _on_health_module_damage_taken():
+func _on_health_module_damage_taken() -> void:
 	sprite.play("hit")
 	
-func _on_health_module_death():
+func _on_health_module_death() -> void:
 	sprite.play("die")
 	await sprite.animation_finished
 	queue_free()
 
 
-func _on_animated_sprite_3d_animation_finished():
+func _on_animated_sprite_3d_animation_finished() -> void:
 	sprite.play("idle")
