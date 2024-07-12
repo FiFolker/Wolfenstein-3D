@@ -5,13 +5,22 @@ var is_shooting:bool = false
 var current_weapon:Weapon
 @export var weapons:Array[Weapon] = [null, null, null, null]
 
+@onready var floor_value := $Control/HBoxContainer/Floor/FloorValue
+@onready var score_value := $Control/HBoxContainer/Score/ScoreValue
+@onready var lives_value := $Control/HBoxContainer/Lives/LivesValue
+@onready var face := $Control/HBoxContainer/Control/Face
+@onready var health_value := $Control/HBoxContainer/Health/HealthValue
+@onready var ammo_value := $Control/HBoxContainer/Ammo/AmmoValue
+@onready var weapon_sprite := $Control/HBoxContainer/CenterContainer/WeaponSprite
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$WeaponAnimation.animation_finished.connect(_on_weapon_animation_finished)
 	set_weapon(0)
 
 func _process(delta:float) -> void:
-	$Control/HBoxContainer/Ammo/AmmoValue.text = str(ammo)
+	ammo_value.text = str(ammo)
 	
 func _input(event:InputEvent) -> void:
 	change_weapon(event)
@@ -42,7 +51,7 @@ func set_weapon(index: int) -> void:
 		current_weapon = weapons[index]
 		$WeaponAnimation.sprite_frames = current_weapon
 		$WeaponAnimation.play("idle")
-		$Control/HBoxContainer/CenterContainer/WeaponSprite.texture = current_weapon.weapon_sprite
+		weapon_sprite.texture = current_weapon.weapon_sprite
 	else:
 		print("Invalid weapon index: ", index)
 
@@ -51,12 +60,12 @@ func _on_weapon_animation_finished() -> void:
 	$WeaponAnimation.play("idle")
 
 func damage(health:int) -> void:
-	$Control/HBoxContainer/Health/HealthValue.text = str(health) + "%" # change ui life label
-	$Control/HBoxContainer/Control/Face.play(get_good_face_animation(health))
+	health_value.text = str(health) + "%" # change ui life label
+	face.play(get_good_face_animation(health))
 	
 func get_good_face_animation(health:int) -> String:
 	var choosed_name:int
-	var sprite_frames: SpriteFrames = $Control/HBoxContainer/Control/Face.sprite_frames
+	var sprite_frames: SpriteFrames = face.sprite_frames
 	var names_sorted : Array[int]
 	
 	for names in sprite_frames.get_animation_names(): # create Array of int to sort them and find the good anim
@@ -65,7 +74,7 @@ func get_good_face_animation(health:int) -> String:
 	names_sorted.sort()
 	
 	for index in range(names_sorted.size()-1): # take good animation name with the current health
-		if health >= names_sorted[index] and health < names_sorted[index+1]:
+		if health >= names_sorted[index] and health <= names_sorted[index+1]:
 			choosed_name = names_sorted[index]
 	
 	return str(choosed_name)

@@ -42,25 +42,21 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
 		if ui_script.is_shooting:
 			shoot()
-	if event.is_action_pressed("ui_accept"):
-		$HealthModule.health -= 5
 
 func shoot() -> void:
 	if ray_cast.is_colliding():
 		var collider : Object = ray_cast.get_collider()
 		if collider:
-			print(collider)
 			var health_module : HealthModule = collider.find_child("HealthModule", true, false)
 			if health_module:
 				health_module.health -= 1
 
 
-func _on_health_module_death():
-	print("tu t'es fait ETEINDRE !!")
+func _on_health_module_death() -> void:
 	queue_free()
 	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 	
 
 
-func _on_health_module_damage_taken():
+func _on_health_module_damage_taken() -> void:
 	ui_script.damage($HealthModule.health)

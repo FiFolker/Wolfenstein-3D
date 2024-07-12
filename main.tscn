@@ -72,6 +72,17 @@ skeleton = NodePath("../../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Level/Wall2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_4s7gb")
 
+[node name="Wall5" type="MeshInstance3D" parent="NavigationRegion3D/Level"]
+transform = Transform3D(11.5114, 0, 0, 0, 4, 0, 0, 0, 1, 0, 1, -4.80876)
+material_override = ExtResource("2_nhodg")
+mesh = SubResource("BoxMesh_mfoee")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Level/Wall5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Level/Wall5/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4s7gb")
+
 [node name="Wall3" type="MeshInstance3D" parent="NavigationRegion3D/Level"]
 transform = Transform3D(-1.74846e-06, 0, -1, 0, 4, 0, 40, 0, -4.37114e-08, 20, 1, 0)
 material_override = ExtResource("2_nhodg")

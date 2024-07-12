@@ -18,7 +18,7 @@ func exit() -> void:
 	pass
 	
 func update(_delta:float) -> void:
-	if entity.position.distance_to(entity.player.position) < entity.enemy_data.follow_range:
+	if entity.target != null:
 		transitioned.emit(self, "EnemyFollow")
 	
 	if wander_time > 0:
@@ -32,5 +32,4 @@ func physic_update(_delta:float) -> void:
 		entity.move_and_slide()
 	for index in range(entity.get_slide_collision_count()):
 		randomize_wander()
-
 

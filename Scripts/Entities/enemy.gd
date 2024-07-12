@@ -5,8 +5,14 @@ class_name Enemy
 @onready var weapon := $Weapon
 @export var enemy_data : EnemyData
 @onready var radar := $Radar
+@onready var weapon_cooldown = $WeaponCooldown
 
 @onready var player: CharacterBody3D = get_parent().get_node("Player")
+
+var rotating_left:bool = false
+var current_angle:float
+
+var target : Object
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,33 +26,15 @@ func _process(delta:float) -> void:
 		sprite.play("walk")
 
 func _physics_process(delta:float) -> void:
-	#radar_detector()
-	#radar.cast_to = radar.to_local(-self.transform.basis.z * enemy_data.max_view_distance) #doesn't work idk why ...
-
+	radar_detector()
 	# Mise à jour du raycast
 	radar.force_raycast_update()
-	DebugDraw3D.draw_ray(self.global_transform.origin, -radar.transform.basis.z, enemy_data.max_view_distance, Color(1,1,0))
 	
 	if player != null:
 		look_at(player.position)
 		rotation.x = 0
 		rotation.z = 0
 	move_and_slide()
-
-func radar_detector()-> void:
-	var cast_count := int(enemy_data.angle_cone_vision / enemy_data.angle_between_rays) + 1
-	
-	for index in cast_count:
-		var cast_vector := (
-			enemy_data.max_view_distance
-			* Vector3.FORWARD.rotated(Vector3.UP ,enemy_data.angle_between_rays * (index - cast_count / 2.0))
-		)
-		
-		radar.cast_to = cast_vector
-		radar.force_raycast_update()
-		if radar.is_colliding() and radar.get_collider() is Player:
-			print("player in vision")
-			break;
 
 func _on_health_module_damage_taken() -> void:
 	sprite.play("hit")
@@ -56,6 +44,27 @@ func _on_health_module_death() -> void:
 	await sprite.animation_finished
 	queue_free()
 
-
 func _on_animated_sprite_3d_animation_finished() -> void:
 	sprite.play("idle")
+
+func radar_detector()-> void:
+	# Appliquer la rotation dans la bonne direction
+	if rotating_left:
+		current_angle -= enemy_data.angle_between_rays
+		if current_angle <= -enemy_data.angle_cone_vision / 2:
+			rotating_left = false
+	else:
+		current_angle += enemy_data.angle_between_rays
+		if current_angle >= enemy_data.angle_cone_vision / 2:
+			rotating_left = true
+
+	# Appliquer la rotation au RayCast3D
+	radar.rotation_degrees.y = current_angle
+
+	# Vérifier les collisions
+	if radar.is_colliding():
+		var collider: Object = radar.get_collider()
+		if collider is Player:
+			target = collider
+		else:
+			target = null
