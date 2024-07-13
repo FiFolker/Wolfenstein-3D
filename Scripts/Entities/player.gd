@@ -42,6 +42,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
 		if ui_script.is_shooting:
 			shoot()
+	if event.is_action_pressed("ui_accept"):
+		$HealthModule.health -= 5
 
 func shoot() -> void:
 	if ray_cast.is_colliding():
@@ -57,6 +59,9 @@ func _on_health_module_death() -> void:
 	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 	
 
-
 func _on_health_module_damage_taken() -> void:
-	ui_script.damage($HealthModule.health)
+	ui_script.update_health($HealthModule.health)
+
+
+func _on_health_module_healed() -> void:
+	ui_script.update_health($HealthModule.health)

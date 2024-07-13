@@ -59,7 +59,7 @@ func _on_weapon_animation_finished() -> void:
 	is_shooting = false
 	$WeaponAnimation.play("idle")
 
-func damage(health:int) -> void:
+func update_health(health:int) -> void:
 	health_value.text = str(health) + "%" # change ui life label
 	face.play(get_good_face_animation(health))
 	

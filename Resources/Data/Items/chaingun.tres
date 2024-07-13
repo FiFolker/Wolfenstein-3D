@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PickableData" load_steps=3 format=3 uid="uid://jywireo4h5r0"]
+
+[ext_resource type="Script" path="res://Scripts/Data/pickable_data.gd" id="1_6igao"]
+[ext_resource type="Texture2D" uid="uid://ddebomrwu4all" path="res://Assets/textures/Items/minigun.png" id="2_0q8pm"]
+
+[resource]
+script = ExtResource("1_6igao")
+sprite = ExtResource("2_0q8pm")

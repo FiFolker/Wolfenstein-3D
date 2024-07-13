@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://rujgayp3w5in"]
+
+[ext_resource type="Script" path="res://Scripts/Items/pickable.gd" id="1_um08n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tv23t"]
+size = Vector3(0.463943, 0.282471, 0.467346)
+
+[node name="Model" type="Sprite3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.649819, 0)
+script = ExtResource("1_um08n")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00470734, -0.172241, 0.00375366)
+shape = SubResource("BoxShape3D_tv23t")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -34,3 +34,4 @@ health = 100
 
 [connection signal="damage_taken" from="HealthModule" to="." method="_on_health_module_damage_taken"]
 [connection signal="death" from="HealthModule" to="." method="_on_health_module_death"]
+[connection signal="healed" from="HealthModule" to="." method="_on_health_module_healed"]

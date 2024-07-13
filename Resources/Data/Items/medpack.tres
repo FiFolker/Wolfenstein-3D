@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PickableData" load_steps=3 format=3 uid="uid://p8cd6plt14nn"]
+
+[ext_resource type="Script" path="res://Scripts/Data/pickable_data.gd" id="1_imw7m"]
+[ext_resource type="Texture2D" uid="uid://pj0l0b42177e" path="res://Assets/textures/Items/medpack.png" id="2_jw4ml"]
+
+[resource]
+script = ExtResource("1_imw7m")
+sprite = ExtResource("2_jw4ml")

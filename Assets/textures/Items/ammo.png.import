@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pj0l0b42177e"
-path.s3tc="res://.godot/imported/medpack.png-628fca38e34292a9202ce471f1f47636.s3tc.ctex"
+uid="uid://dsybc7f5qekx4"
+path="res://.godot/imported/ammo.png-25303c894e78698e287c34cc97a6618e.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/Items/medpack.png"
-dest_files=["res://.godot/imported/medpack.png-628fca38e34292a9202ce471f1f47636.s3tc.ctex"]
+source_file="res://Assets/textures/Items/ammo.png"
+dest_files=["res://.godot/imported/ammo.png-25303c894e78698e287c34cc97a6618e.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

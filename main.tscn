@@ -1,9 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://cvl2k7kkumou2"]
+[gd_scene load_steps=16 format=3 uid="uid://cvl2k7kkumou2"]
 
 [ext_resource type="Material" uid="uid://dpscv1dvmuivx" path="res://Resources/Materials/floor.tres" id="1_y1c4h"]
 [ext_resource type="Material" uid="uid://hjd6me53k836" path="res://Resources/Materials/walls.tres" id="2_nhodg"]
 [ext_resource type="PackedScene" uid="uid://cx5rdafvwbr7n" path="res://Scenes/enemy.tscn" id="3_wdajt"]
 [ext_resource type="PackedScene" uid="uid://c5n387ol0xt7o" path="res://Scenes/player.tscn" id="4_oagsq"]
+[ext_resource type="PackedScene" uid="uid://rujgayp3w5in" path="res://Scenes/Items/item_generic.tscn" id="5_ph0li"]
+[ext_resource type="Script" path="res://Scripts/Items/medpack.gd" id="6_ln4uj"]
+[ext_resource type="Resource" uid="uid://p8cd6plt14nn" path="res://Resources/Data/Items/medpack.tres" id="7_npdbn"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_3ywo0"]
 vertices = PackedVector3Array(-18.75, 0.5, -18.75, -18.75, 0.5, 19, 19, 0.5, 19, 19, 0.5, -18.75)
@@ -118,3 +121,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, -16.5491)
 
 [node name="Player" parent="." instance=ExtResource("4_oagsq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 9.8026)
+
+[node name="Medpack" parent="." instance=ExtResource("5_ph0li")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7, 0.649819, 8)
+script = ExtResource("6_ln4uj")
+heal = 10
+pickable_data = ExtResource("7_npdbn")

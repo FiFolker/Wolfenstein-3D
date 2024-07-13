@@ -8,8 +8,8 @@ var can_attack:bool = true
 func enter() -> void:
 	print("Attack State enter ...")
 	entity.velocity = Vector3.ZERO
-	entity.weapon_cooldown.timeout.connect(_can_attack)
-	
+	if !entity.weapon_cooldown.timeout.is_connected(_can_attack):
+		entity.weapon_cooldown.timeout.connect(_can_attack)
 
 func exit() -> void:
 	pass
@@ -35,7 +35,7 @@ func attack() -> void:
 			var health_module : HealthModule = collider.find_child("HealthModule", true, false)
 			if health_module:
 				var rng = randf()
-				if rng > 0.8:
+				if rng > 0.4:
 					health_module.health -= 5
 				entity.weapon_cooldown.start()
 				can_attack = false
