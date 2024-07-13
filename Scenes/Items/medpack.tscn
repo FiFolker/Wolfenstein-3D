@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://kjfjxpcnqn85"]
+
+[ext_resource type="PackedScene" uid="uid://rujgayp3w5in" path="res://Scenes/Items/item_generic.tscn" id="1_capa0"]
+[ext_resource type="Script" path="res://Scripts/Items/medpack.gd" id="2_id50g"]
+
+[node name="Medpack" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_capa0")]
+script = ExtResource("2_id50g")
+heal = 10

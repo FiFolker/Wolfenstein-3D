@@ -65,3 +65,6 @@ func _on_health_module_damage_taken() -> void:
 
 func _on_health_module_healed() -> void:
 	ui_script.update_health($HealthModule.health)
+	
+func add_ammo(ammo:int) -> void:
+	ui_script.update_ammo(ammo)

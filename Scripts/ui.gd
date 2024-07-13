@@ -47,7 +47,6 @@ func change_weapon(event: InputEvent) -> void:
 
 func set_weapon(index: int) -> void:
 	if index >= 0 and index < weapons.size() and weapons[index] != null:
-
 		current_weapon = weapons[index]
 		$WeaponAnimation.sprite_frames = current_weapon
 		$WeaponAnimation.play("idle")
@@ -79,4 +78,6 @@ func get_good_face_animation(health:int) -> String:
 	
 	return str(choosed_name)
 	
-
+func update_ammo(new_ammo:int) -> void:
+	self.ammo += new_ammo
+	ammo_value.text = str(self.ammo)

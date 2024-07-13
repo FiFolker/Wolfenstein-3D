@@ -5,6 +5,7 @@ class_name Medpack
 
 func picked(player:Player) -> void:
 	var health : HealthModule = player.get_node("HealthModule")
-	print(health)
 	if health:
+		print(health.health)
+		print(heal)
 		health.health += heal

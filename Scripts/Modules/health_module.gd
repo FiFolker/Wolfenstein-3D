@@ -7,12 +7,12 @@ signal death
 @export var max_health:int
 @export var health:int: 
 	set(value):
+		health = clamp(value,0,max_health)
 		if value > 0:
 			if value < health && value > 0:
 				damage_taken.emit()
 			else:
 				healed.emit()
-		health = clamp(value,0,max_health)
 		if health == 0:
 			death.emit()
 		
