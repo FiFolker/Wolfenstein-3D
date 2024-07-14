@@ -2,7 +2,7 @@ extends Sprite3D
 class_name Pickable
 
 @export var pickable_data:PickableData
-@onready var player: CharacterBody3D = get_parent().get_node("Player")
+@onready var player: CharacterBody3D = get_tree().root.get_node("Main/Player")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

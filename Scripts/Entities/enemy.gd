@@ -7,7 +7,7 @@ class_name Enemy
 @onready var radar := $Radar
 @onready var weapon_cooldown = $WeaponCooldown
 
-@onready var player: CharacterBody3D = get_parent().get_node("Player")
+@onready var player: CharacterBody3D = get_tree().root.get_node("Main/Player")
 
 var rotating_left:bool = false
 var current_angle:float
