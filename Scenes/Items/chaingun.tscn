@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://c48j35l10g5d2"]
+
+[ext_resource type="PackedScene" uid="uid://rujgayp3w5in" path="res://Scenes/Items/item_generic.tscn" id="1_gnaet"]
+[ext_resource type="Script" path="res://Scripts/Items/weapon_item.gd" id="2_nrdp2"]
+[ext_resource type="Resource" uid="uid://jywireo4h5r0" path="res://Resources/Data/Items/chaingun.tres" id="3_cav36"]
+[ext_resource type="SpriteFrames" uid="uid://cafniesrk7sb7" path="res://Resources/SpriteFrames/Weapons/chaingun.tres" id="3_g0rqf"]
+
+[node name="chaingun" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_gnaet")]
+script = ExtResource("2_nrdp2")
+weapon_index = 3
+weapon = ExtResource("3_g0rqf")
+pickable_data = ExtResource("3_cav36")

@@ -68,3 +68,6 @@ func _on_health_module_healed() -> void:
 	
 func add_ammo(ammo:int) -> void:
 	ui_script.update_ammo(ammo)
+
+func add_weapon(weapon_index:int, weapon:Weapon) -> void:
+	ui_script.weapons[weapon_index] = weapon

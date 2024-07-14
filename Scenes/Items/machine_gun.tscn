@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwbn405mo5e0d"]
+
+[ext_resource type="PackedScene" uid="uid://rujgayp3w5in" path="res://Scenes/Items/item_generic.tscn" id="1_yj578"]
+[ext_resource type="Script" path="res://Scripts/Items/weapon_item.gd" id="2_fnqyu"]
+[ext_resource type="SpriteFrames" uid="uid://b6otlbbe4m0jd" path="res://Resources/SpriteFrames/Weapons/machine_gun.tres" id="3_uwvnw"]
+[ext_resource type="Resource" uid="uid://crkft8b3yhys7" path="res://Resources/Data/Items/machine_gun.tres" id="4_3vwm1"]
+
+[node name="machine_gun" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_yj578")]
+script = ExtResource("2_fnqyu")
+weapon_index = 2
+weapon = ExtResource("3_uwvnw")
+pickable_data = ExtResource("4_3vwm1")
