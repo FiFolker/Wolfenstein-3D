@@ -3,7 +3,7 @@ extends Node3D
 var can_open_door:bool = false
 @onready var animation_player = $AnimationPlayer
 @onready var timer = $Timer
-@onready var animated_sprite_3d = %AnimatedSprite3D
+@onready var animated_sprite_3d = $StaticBody/AnimatedSprite3D
 
 func _ready()->void:
 	animated_sprite_3d.play("closed")

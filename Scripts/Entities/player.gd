@@ -75,4 +75,5 @@ func add_weapon(weapon_index:int, weapon:Weapon) -> void:
 
 
 func _on_ui_on_change_weapon(range):
-	ray_cast.target_position = Vector3(0,0, -range)
+	#ray_cast.target_position = Vector3(0,0, -range)
+	pass

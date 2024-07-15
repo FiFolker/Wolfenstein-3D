@@ -17,17 +17,33 @@ size_flags_vertical = 4
 color = Color(0.703408, 0.00956622, 0.0518395, 1)
 
 [node name="Replay" type="Button" parent="."]
-offset_top = 168.0
-offset_right = 1152.0
-offset_bottom = 321.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -158.0
+offset_right = 576.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_e0p3y")
 theme_override_font_sizes/font_size = 100
 text = "Replay"
 
 [node name="Quit" type="Button" parent="."]
-offset_top = 342.0
-offset_right = 1152.0
-offset_bottom = 495.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = 33.0
+offset_right = 576.0
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_e0p3y")
 theme_override_font_sizes/font_size = 100
 text = "QUIT"

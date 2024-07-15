@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://vxc7gopkifk7"]
+
+[ext_resource type="FontFile" uid="uid://bahll6yycpk4j" path="res://Assets/Fonts/Wolfenstein (fake).ttf" id="1_8ghqi"]
+
+[resource]
+Label/colors/font_color = Color(0.54902, 0.54902, 0.54902, 1)
+Label/font_sizes/font_size = 27
+Label/fonts/font = ExtResource("1_8ghqi")
+LabelNumber/base_type = &"Label"
+LabelNumber/colors/font_color = Color(1, 1, 1, 1)
+LabelNumber/font_sizes/font_size = 52
+LabelNumber/fonts/font = ExtResource("1_8ghqi")
+TitleLabel/base_type = &"Label"
+TitleLabel/colors/font_color = Color(1, 1, 1, 1)
+TitleLabel/font_sizes/font_size = 100
+TitleLabel/fonts/font = ExtResource("1_8ghqi")

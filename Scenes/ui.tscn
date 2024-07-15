@@ -1,21 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://dqfv664ya6qvf"]
+[gd_scene load_steps=28 format=3 uid="uid://dqfv664ya6qvf"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_y1usg"]
 [ext_resource type="SpriteFrames" uid="uid://cjlrh348xgjwn" path="res://Resources/SpriteFrames/Weapons/knife.tres" id="2_65anr"]
-[ext_resource type="FontFile" uid="uid://bahll6yycpk4j" path="res://Assets/Fonts/Wolfenstein (fake).ttf" id="3_ihkai"]
 [ext_resource type="SpriteFrames" uid="uid://hqstwm63f6gp" path="res://Resources/SpriteFrames/Weapons/pistol.tres" id="3_ikv47"]
 [ext_resource type="Texture2D" uid="uid://bttcwloecl1ih" path="res://Assets/textures/Characters/bjface.png" id="3_lx46n"]
 [ext_resource type="Texture2D" uid="uid://0jtydcinoh3x" path="res://Assets/textures/Items/hudknife.png" id="6_x61u0"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_lp1to"]
-line_spacing = 0.0
-font = ExtResource("3_ihkai")
-font_size = 27
-font_color = Color(0.548963, 0.548963, 0.548963, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_i1x3t"]
-font = ExtResource("3_ihkai")
-font_size = 52
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5p0kk"]
 atlas = ExtResource("3_lx46n")
@@ -253,13 +242,12 @@ layout_mode = 2
 [node name="FloorLabel" type="Label" parent="Control/HBoxContainer/Floor"]
 layout_mode = 2
 text = "FLOOR"
-label_settings = SubResource("LabelSettings_lp1to")
 horizontal_alignment = 1
 
 [node name="FloorValue" type="Label" parent="Control/HBoxContainer/Floor"]
 layout_mode = 2
+theme_type_variation = &"LabelNumber"
 text = "1"
-label_settings = SubResource("LabelSettings_i1x3t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -270,13 +258,12 @@ layout_mode = 2
 [node name="ScoreLabel" type="Label" parent="Control/HBoxContainer/Score"]
 layout_mode = 2
 text = "SCORE"
-label_settings = SubResource("LabelSettings_lp1to")
 horizontal_alignment = 1
 
 [node name="ScoreValue" type="Label" parent="Control/HBoxContainer/Score"]
 layout_mode = 2
+theme_type_variation = &"LabelNumber"
 text = "0"
-label_settings = SubResource("LabelSettings_i1x3t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -287,13 +274,12 @@ layout_mode = 2
 [node name="LivesLabel" type="Label" parent="Control/HBoxContainer/Lives"]
 layout_mode = 2
 text = "LIVES"
-label_settings = SubResource("LabelSettings_lp1to")
 horizontal_alignment = 1
 
 [node name="LivesValue" type="Label" parent="Control/HBoxContainer/Lives"]
 layout_mode = 2
+theme_type_variation = &"LabelNumber"
 text = "3"
-label_settings = SubResource("LabelSettings_i1x3t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -315,13 +301,12 @@ layout_mode = 2
 [node name="HealthLabel" type="Label" parent="Control/HBoxContainer/Health"]
 layout_mode = 2
 text = "HEALTH"
-label_settings = SubResource("LabelSettings_lp1to")
 horizontal_alignment = 1
 
 [node name="HealthValue" type="Label" parent="Control/HBoxContainer/Health"]
 layout_mode = 2
+theme_type_variation = &"LabelNumber"
 text = "100%"
-label_settings = SubResource("LabelSettings_i1x3t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -332,13 +317,12 @@ layout_mode = 2
 [node name="AmmoLabel" type="Label" parent="Control/HBoxContainer/Ammo"]
 layout_mode = 2
 text = "AMMO"
-label_settings = SubResource("LabelSettings_lp1to")
 horizontal_alignment = 1
 
 [node name="AmmoValue" type="Label" parent="Control/HBoxContainer/Ammo"]
 layout_mode = 2
+theme_type_variation = &"LabelNumber"
 text = "0"
-label_settings = SubResource("LabelSettings_i1x3t")
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -38,6 +38,7 @@ frame_progress = 1.0
 
 [node name="Radar" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, 80)
+collision_mask = 5
 debug_shape_custom_color = Color(0.61105, 0.576168, 0.049583, 1)
 
 [node name="WeaponCooldown" type="Timer" parent="."]
@@ -46,6 +47,7 @@ process_callback = 0
 [node name="Weapon" type="RayCast3D" parent="."]
 transform = Transform3D(0.999858, -0.0168587, -0.000442089, 0.0168593, 0.999857, 0.00147162, 0.000417218, -0.00147887, 0.999999, 0, 0, 0)
 target_position = Vector3(0, 0, 20)
+collision_mask = 5
 debug_shape_custom_color = Color(0.913725, 0, 0, 1)
 debug_shape_thickness = 5
 

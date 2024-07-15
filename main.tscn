@@ -147,8 +147,8 @@ shape = SubResource("ConcavePolygonShape3D_4s7gb")
 [node name="Door" parent="NavigationRegion3D/Level" instance=ExtResource("9_7bv8j")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 2, -4.18665, 1.29841, 6.58454)
 
-[node name="Door2" parent="NavigationRegion3D/Level" instance=ExtResource("9_7bv8j")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 2, 8.62015, 1.29841, -4.89855)
+[node name="Door3" parent="NavigationRegion3D/Level" instance=ExtResource("9_7bv8j")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 2, 8.62, 1.298, -4.899)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_184ok")
@@ -168,11 +168,41 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 9.8026)
 [node name="Ammo" parent="Items" instance=ExtResource("8_w8cuc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 11)
 
+[node name="Ammo2" parent="Items" instance=ExtResource("8_w8cuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 14.4266)
+
+[node name="Ammo3" parent="Items" instance=ExtResource("8_w8cuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4194, 0, 14.4266)
+
+[node name="Ammo4" parent="Items" instance=ExtResource("8_w8cuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4194, 0, 10.8798)
+
 [node name="Medpack" parent="Items" instance=ExtResource("6_xqqu5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.39799, 0, 10.0723)
+
+[node name="Medpack2" parent="Items" instance=ExtResource("6_xqqu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2034, 0, 10.0723)
+
+[node name="Medpack3" parent="Items" instance=ExtResource("6_xqqu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2034, 0, 12.6297)
+
+[node name="Medpack4" parent="Items" instance=ExtResource("6_xqqu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.58151, 0, 12.6297)
+
+[node name="Medpack5" parent="Items" instance=ExtResource("6_xqqu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.58151, 0, 10.4082)
+
+[node name="Medpack6" parent="Items" instance=ExtResource("6_xqqu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.29361, 0, 12.6138)
 
 [node name="machine_gun" parent="Items" instance=ExtResource("7_lim6c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1661, 0, 0.704057)
 
+[node name="machine_gun2" parent="Items" instance=ExtResource("7_lim6c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1661, 0, 3.37327)
+
 [node name="chaingun" parent="Items" instance=ExtResource("8_t0lha")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.36065, 0, 1.99878)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.36065, 0, 1.96457)
+
+[node name="chaingun2" parent="Items" instance=ExtResource("8_t0lha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.36065, 0, -0.469872)
