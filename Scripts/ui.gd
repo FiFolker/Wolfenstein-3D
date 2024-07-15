@@ -5,6 +5,8 @@ var is_shooting:bool = false
 var current_weapon:Weapon
 @export var weapons:Array[Weapon] = [null, null, null, null]
 
+signal on_change_weapon(range:int)
+
 @onready var floor_value := $Control/HBoxContainer/Floor/FloorValue
 @onready var score_value := $Control/HBoxContainer/Score/ScoreValue
 @onready var lives_value := $Control/HBoxContainer/Lives/LivesValue
@@ -51,6 +53,7 @@ func set_weapon(index: int) -> void:
 		$WeaponAnimation.sprite_frames = current_weapon
 		$WeaponAnimation.play("idle")
 		weapon_sprite.texture = current_weapon.weapon_sprite
+		on_change_weapon.emit(current_weapon.weapon_range)
 	else:
 		print("Invalid weapon index: ", index)
 

@@ -54,4 +54,4 @@ animations = [{
 script = ExtResource("2_qhaik")
 has_ammo = true
 weapon_sprite = ExtResource("3_xwakd")
-weapon_range = 0.0
+weapon_range = 20.0

@@ -78,7 +78,7 @@ skeleton = NodePath("../../..")
 shape = SubResource("ConcavePolygonShape3D_4s7gb")
 
 [node name="Wall5" type="MeshInstance3D" parent="NavigationRegion3D/Level"]
-transform = Transform3D(42.0823, 0, 0, 0, 4, 0, 0, 0, 1, 0, 1, -4.80876)
+transform = Transform3D(26.5583, 0, 0, 0, 4, 0, 0, 0, 1, -5.97956, 1, -4.80876)
 material_override = ExtResource("2_nhodg")
 mesh = SubResource("BoxMesh_mfoee")
 skeleton = NodePath("../../..")
@@ -86,6 +86,17 @@ skeleton = NodePath("../../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Level/Wall5"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Level/Wall5/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4s7gb")
+
+[node name="Wall8" type="MeshInstance3D" parent="NavigationRegion3D/Level"]
+transform = Transform3D(9.58874, 0, 0, 0, 4, 0, 0, 0, 1, 14.6859, 1, -4.80876)
+material_override = ExtResource("2_nhodg")
+mesh = SubResource("BoxMesh_mfoee")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Level/Wall8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Level/Wall8/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_4s7gb")
 
 [node name="Wall6" type="MeshInstance3D" parent="NavigationRegion3D/Level"]
@@ -134,7 +145,10 @@ skeleton = NodePath("../../..")
 shape = SubResource("ConcavePolygonShape3D_4s7gb")
 
 [node name="Door" parent="NavigationRegion3D/Level" instance=ExtResource("9_7bv8j")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -4.18665, 1.29841, 6.58454)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 2, -4.18665, 1.29841, 6.58454)
+
+[node name="Door2" parent="NavigationRegion3D/Level" instance=ExtResource("9_7bv8j")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 2, 8.62015, 1.29841, -4.89855)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_184ok")

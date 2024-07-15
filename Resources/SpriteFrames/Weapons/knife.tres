@@ -54,4 +54,4 @@ animations = [{
 script = ExtResource("2_thtn4")
 has_ammo = false
 weapon_sprite = ExtResource("3_yf0qk")
-weapon_range = 0.0
+weapon_range = 2.0

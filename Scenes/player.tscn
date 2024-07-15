@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5n387ol0xt7o"]
+[gd_scene load_steps=7 format=3 uid="uid://c5n387ol0xt7o"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/player.gd" id="1_uwf8r"]
 [ext_resource type="PackedScene" uid="uid://dqfv664ya6qvf" path="res://Scenes/ui.tscn" id="2_vvph4"]
 [ext_resource type="PackedScene" uid="uid://cwytwwdq6dvcj" path="res://Scenes/Modules/health_module.tscn" id="3_3rdte"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_em2f5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t13yn"]
+size = Vector3(1, 1, 20)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qtl6e"]
 
@@ -22,6 +25,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
 target_position = Vector3(0, 0, -20)
 collision_mask = 3
+debug_shape_thickness = 5
+
+[node name="Area3D" type="Area3D" parent="Camera3D"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.2939)
+shape = SubResource("BoxShape3D_t13yn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_qtl6e")
@@ -32,6 +43,7 @@ shape = SubResource("CapsuleShape3D_qtl6e")
 max_health = 100
 health = 100
 
+[connection signal="on_change_weapon" from="UI" to="." method="_on_ui_on_change_weapon"]
 [connection signal="damage_taken" from="HealthModule" to="." method="_on_health_module_damage_taken"]
 [connection signal="death" from="HealthModule" to="." method="_on_health_module_death"]
 [connection signal="healed" from="HealthModule" to="." method="_on_health_module_healed"]

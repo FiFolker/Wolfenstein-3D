@@ -57,7 +57,7 @@ size = Vector3(0.635803, 0.626465, 0.0345459)
 size = Vector3(0.636, 0.626, 0.5)
 
 [node name="Door" type="Node3D"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 1.257, 0)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 2, 0, 1.257, 0)
 script = ExtResource("1_cydqy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

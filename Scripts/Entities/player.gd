@@ -10,6 +10,7 @@ const TURN_SPEED = 0.05
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+# TO DO : implement raycast with area 3D so it has a biggest shape and will be more easy to shoot enemies
 
 func _physics_process(delta:float) -> void:
 	# Add the gravity.
@@ -71,3 +72,7 @@ func add_ammo(ammo:int) -> void:
 
 func add_weapon(weapon_index:int, weapon:Weapon) -> void:
 	ui_script.weapons[weapon_index] = weapon
+
+
+func _on_ui_on_change_weapon(range):
+	ray_cast.target_position = Vector3(0,0, -range)
