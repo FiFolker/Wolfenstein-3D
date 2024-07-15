@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cvl2k7kkumou2"]
+[gd_scene load_steps=18 format=3 uid="uid://cvl2k7kkumou2"]
 
 [ext_resource type="Material" uid="uid://dpscv1dvmuivx" path="res://Resources/Materials/floor.tres" id="1_y1c4h"]
 [ext_resource type="Material" uid="uid://hjd6me53k836" path="res://Resources/Materials/walls.tres" id="2_nhodg"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bwbn405mo5e0d" path="res://Scenes/Items/machine_gun.tscn" id="7_lim6c"]
 [ext_resource type="PackedScene" uid="uid://c48j35l10g5d2" path="res://Scenes/Items/chaingun.tscn" id="8_t0lha"]
 [ext_resource type="PackedScene" uid="uid://csawkf8t6luaw" path="res://Scenes/Items/ammo.tscn" id="8_w8cuc"]
+[ext_resource type="PackedScene" uid="uid://cxmkk8sqphjr1" path="res://Scenes/door.tscn" id="9_7bv8j"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_3ywo0"]
 vertices = PackedVector3Array(-18.75, 0.5, -18.75, -18.75, 0.5, 19, 19, 0.5, 19, 19, 0.5, -18.75)
@@ -87,6 +88,28 @@ skeleton = NodePath("../../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Level/Wall5/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_4s7gb")
 
+[node name="Wall6" type="MeshInstance3D" parent="NavigationRegion3D/Level"]
+transform = Transform3D(22.4092, 0, 0, 0, 4, 0, 0, 0, 1, 8.23265, 1, 6.50824)
+material_override = ExtResource("2_nhodg")
+mesh = SubResource("BoxMesh_mfoee")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Level/Wall6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Level/Wall6/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4s7gb")
+
+[node name="Wall7" type="MeshInstance3D" parent="NavigationRegion3D/Level"]
+transform = Transform3D(13.925, 0, 0, 0, 4, 0, 0, 0, 1, -12.3773, 1, 6.50824)
+material_override = ExtResource("2_nhodg")
+mesh = SubResource("BoxMesh_mfoee")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Level/Wall7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Level/Wall7/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4s7gb")
+
 [node name="Wall3" type="MeshInstance3D" parent="NavigationRegion3D/Level"]
 transform = Transform3D(-1.74846e-06, 0, -1, 0, 4, 0, 40, 0, -4.37114e-08, 20, 1, 0)
 material_override = ExtResource("2_nhodg")
@@ -110,6 +133,9 @@ skeleton = NodePath("../../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Level/Wall4/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_4s7gb")
 
+[node name="Door" parent="NavigationRegion3D/Level" instance=ExtResource("9_7bv8j")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -4.18665, 1.29841, 6.58454)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_184ok")
 
@@ -123,14 +149,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, -16.5491)
 [node name="Player" parent="." instance=ExtResource("4_oagsq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 9.8026)
 
-[node name="Ammo" parent="." instance=ExtResource("8_w8cuc")]
+[node name="Items" type="Node3D" parent="."]
+
+[node name="Ammo" parent="Items" instance=ExtResource("8_w8cuc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 11)
 
-[node name="Medpack" parent="." instance=ExtResource("6_xqqu5")]
+[node name="Medpack" parent="Items" instance=ExtResource("6_xqqu5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.39799, 0, 10.0723)
 
-[node name="machine_gun" parent="." instance=ExtResource("7_lim6c")]
+[node name="machine_gun" parent="Items" instance=ExtResource("7_lim6c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1661, 0, 0.704057)
 
-[node name="chaingun" parent="." instance=ExtResource("8_t0lha")]
+[node name="chaingun" parent="Items" instance=ExtResource("8_t0lha")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.36065, 0, 1.99878)

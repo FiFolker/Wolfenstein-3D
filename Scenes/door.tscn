@@ -1,0 +1,95 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxmkk8sqphjr1"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/door.gd" id="1_cydqy"]
+[ext_resource type="Texture2D" uid="uid://ciqishh5dmpr3" path="res://Assets/textures/Environment/door.png" id="1_y2dce"]
+
+[sub_resource type="Animation" id="Animation_dlmi8"]
+resource_name = "opening_door"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.7, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cmbab"]
+_data = {
+"door_opening": SubResource("Animation_dlmi8")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i87d8"]
+atlas = ExtResource("1_y2dce")
+region = Rect2(0, 0, 63, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57djg"]
+atlas = ExtResource("1_y2dce")
+region = Rect2(63, 0, 63, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w0tck"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i87d8")
+}],
+"loop": false,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57djg")
+}],
+"loop": false,
+"name": &"opened",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l84gs"]
+size = Vector3(0.635803, 0.626465, 0.0345459)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jolj7"]
+size = Vector3(0.636, 0.626, 0.5)
+
+[node name="Door" type="Node3D"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 1.257, 0)
+script = ExtResource("1_cydqy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../StaticBody/AnimatedSprite3D")
+libraries = {
+"": SubResource("AnimationLibrary_cmbab")
+}
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.5
+one_shot = true
+
+[node name="StaticBody" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="StaticBody"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_w0tck")
+animation = &"opened"
+autoplay = "closed"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000579834, 0.00366211, 0.00128174)
+shape = SubResource("BoxShape3D_l84gs")
+
+[node name="Area3D" type="Area3D" parent="StaticBody"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody/Area3D"]
+shape = SubResource("BoxShape3D_jolj7")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="StaticBody/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="StaticBody/Area3D" to="." method="_on_area_3d_body_exited"]
